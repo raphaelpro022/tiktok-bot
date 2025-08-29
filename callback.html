@@ -33,7 +33,7 @@
       resultEl.textContent = "🔹 Code reçu, échange en cours...";
 
       try {
-        const res = await fetch("................", {
+        const res = await fetch("https://tiktok-backend.vercel.app/api/exchange", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ code })
