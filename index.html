@@ -1,1 +1,82 @@
-<h1>TikTok Bot</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion TikTok</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      color: #00f2ea;
+      margin-bottom: 2rem;
+    }
+    button {
+      background: #00f2ea;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00c9d2;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    a {
+      color: #00f2ea;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Connexion TikTok</h1>
+  <p>Appuyez sur le bouton ci-dessous pour vous connecter avec TikTok :</p>
+  <button id="loginBtn">Se connecter avec TikTok</button>
+
+  <footer>
+    <p>
+      <a href="terms.html">Conditions d’utilisation</a> | 
+      <a href="privacy.html">Politique de confidentialité</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      // 🔑 Remplace avec TES infos TikTok Developer
+      const CLIENT_KEY = "sbawyevz981byo72o7"; 
+      const REDIRECT_URI = encodeURIComponent("https://raphaelpro022.github.io/tiktok-site/callback.html");
+      const STATE = "st" + Date.now(); // Génère un état unique pour sécurité
+      const SCOPES = encodeURIComponent("user.info.basic,user.info.stats,video.upload");
+
+      const authUrl = `https://www.tiktok.com/v2/auth/authorize/` +
+        `?client_key=${CLIENT_KEY}` +
+        `&scope=${SCOPES}` +
+        `&response_type=code` +
+        `&redirect_uri=${REDIRECT_URI}` +
+        `&state=${STATE}`;
+
+      // Redirige l’utilisateur vers TikTok
+      window.location.href = authUrl;
+    });
+  </script>
+</body>
+</html>
